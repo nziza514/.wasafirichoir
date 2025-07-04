@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<!-- Instagram icon with developer link in the header -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 60px;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.85);
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90vw;
+    max-height: 80vh;
+    border-radius: 12px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+}
+.close-modal {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1100;
+    transition: color 0.2s;
+}
+.close-modal:hover { color: #ff4081; }
+/* Instagram developer link styles */
+.dev-instagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+.dev-instagram a {
+    color: #E1306C;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.dev-instagram a:hover {
+    color: #ad1457;
+}
+</style>
+<!-- Instagram developer link in header -->
+<div class="dev-instagram">
+    <a href="https://www.instagram.com/heritier_armah/#" target="_blank" rel="noopener">
+        <i class="fab fa-instagram"></i>
+        DEVELOPED BY NZIZA HERITIER
+    </a>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Create modal elements
+    const modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = `
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img" alt="Preview">
+    `;
+    document.body.appendChild(modal);
+
+    const modalImg = modal.querySelector('#modal-img');
+    const closeBtn = modal.querySelector('.close-modal');
+
+    // Open modal on image click
+    document.querySelectorAll('.album-item img').forEach(img => {
+        img.style.cursor = 'zoom-in';
+        img.addEventListener('click', function() {
+            modal.style.display = 'block';
+            modalImg.src = this.src;
+            modalImg.alt = this.alt;
+        });
+    });
+
+    // Close modal
+    closeBtn.onclick = () => { modal.style.display = 'none'; };
+    modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') modal.style.display = 'none';
+    });
+});
+</script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WASAFIRI FAMILY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(to bottom, #87ceeb 0%, #e0f7fa 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        header {
+            background: rgba(186, 243, 243, 0.85);
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #1565c0;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        .album-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .album-item {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 16px rgba(21,101,192,0.08);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s;
+        }
+        .album-item:hover {
+            box-shadow: 0 8px 24px rgba(21,101,192,0.16);
+        }
+        .album-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+        .download-btn {
+            margin: 1rem 0;
+            padding: 0.5rem 1.5rem;
+            background: #1565c0;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            box-shadow: 0 2px 8px rgba(21,101,192,0.08);
+        }
+        .download-btn:hover {
+            background: #1976d2;
+        }
+        .copyright {
+            text-align: center;
+            color: #1565c0;
+            font-size: 1rem;
+            padding: 2rem 0 1rem 0;
+            opacity: 0.7;
+        }
+        @media (max-width: 600px) {
+            .album-grid {
+                padding: 1rem;
+                gap: 1rem;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>WASAFIRI FAMILY</h1>
+    </header>
+    <main>
+        <section class="album-grid">
+            <!-- Replace src and download href with your actual images -->
+            <div class="album-item">
+                <img src="MAN_6545.jpg" alt="LEADERS">
+                <a class="download-btn" href="MAN_6545.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6878.jpg" alt="Choir Member 2">
+                <a class="download-btn" href="MAN_6878.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6937.jpg" alt="Choir Member 3">
+                <a class="download-btn" href="MAN_6937.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6417.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6417.jpg" download>Download</a>
+            </div>
+           <div class="album-item">
+                <img src="MAN_6872.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6872.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6916.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6916.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6836.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6836.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6764.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6764.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6413.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6413.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6545.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6545.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6628.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6628.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6684.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6684.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6689.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6689.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6708.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6708.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6713.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6713.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6740.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6740.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6755..jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6755..jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6760.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6760.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6764.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6764.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6821.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6821.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6823.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6823.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6836.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6836.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6844.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6844.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6872.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6872.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6878.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6878.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6900.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6900.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6911.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6912.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6912.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6912.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6916.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6916.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6932.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6932.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6402.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6402.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6474.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6474.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6475.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6475.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6476.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6476.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6479(9).jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6479(9).jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6618.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6618.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6620.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6620.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6622.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6622.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6699.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6699.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6701.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6701.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6702.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6702.jpg" download>Download</a>
+            </div>
+             <div class="album-item">
+                <img src="MAN_6705.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6705.jpg" download>Download</a>
+            </div>  
+             <div class="album-item">
+                <img src="MAN_6711.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6711.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6716.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6716.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6722.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6722.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6738.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6738.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6744..jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6744..jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6749.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6749.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6771.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6771.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6787.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6787.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6789.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6789.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6474.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6474.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6475.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6475.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6402.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6402.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6417.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6417.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6474.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6474.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6475.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6475.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6476.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6476.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6479(9).jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6479(9).jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6744..jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6744..jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6749.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6749.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6618.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6618.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6620.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6620.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6622.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6622.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6699.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6699.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6804.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6804.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6814.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6814.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6816.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6816.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6817.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6817.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6818.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6818.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6821.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6821.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6832.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6832.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6838.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6838.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6855.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6855.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6862.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6862.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6860.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6860.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6862.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6862.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6863.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6863.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6868.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6868.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6864.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6864.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6868.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6868.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6874.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6874.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6889.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6889.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6618.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6618.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6906.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6906.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6910.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6910.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6919.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6919.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6921.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6921.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6923.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6923.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6927.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6927.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6930.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6930.jpg" download>Download</a>
+            </div>
+            <div class="album-item">
+                <img src="MAN_6939.jpg" alt="Choir Member 4">
+                <a class="download-btn" href="MAN_6939.jpg" download>Download</a>
+            </div>
+           
+            <!-- Add more album-item blocks as needed -->
+        </section>
+    </main>
+    <footer>
+        <div class="copyright">
+            &copy; WASAFILI FAMILY. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
